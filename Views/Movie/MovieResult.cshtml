@@ -1,0 +1,40 @@
+﻿@model List<Movie>
+@*@using Microsoft.AspNetCore.Http
+@using System.Text.Json;*@
+
+
+<h2>Your registerd movie</h2>
+
+@*<ul>
+        <li>Movie ID:@Model.ID</li>
+        <li>Title:@Model.Title</li>
+        <li>Genre:@Model.Genre</li>
+        <li>Year:@Model.Year</li>
+        <li>Actor:@Model.Actors</li>
+        <li>Director:@Model.Directors</li>
+    </ul>*@
+
+
+@{
+    //var savedMovie = Context.Session.GetString("MovieListSession");
+
+    //List<Movie> movielist = JsonSerializer.Deserialize<List<Movie>>(savedMovie);
+
+    for (int i = 0; i < Model.Count; i++)
+    {
+        <ul>
+            <li>@Model[i].ID</li>
+            <li>@Model[i].Title</li>
+            <li>@Model[i].Genre</li>
+            <li>@Model[i].Actors</li>
+            <li>@Model[i].Directors</li>
+            <li><a href="../Movie/ShoppingCart?ID=@Model[i].ID">Add To Shopping Cart</a></li>
+        </ul>
+        <br />
+
+    }
+}
+
+<br />
+<br />
+
